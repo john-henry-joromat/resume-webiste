@@ -9,24 +9,39 @@ export default function Navigation() {
     setToggleMenu(!showToggleMenu);
     console.log(showToggleMenu);
   };
+  const [data, setData] = useState([
+    {
+      id: 1,
+      name: 'About',
+      href: '#about',
+    },
+    {
+      id: 2,
+      name: 'Experience',
+      href: '#experience',
+    },
+    {
+      id: 3,
+      name: 'Projects',
+      href: '#projects',
+    },
+    {
+      id: 4,
+      name: 'Contact',
+      href: '#contact',
+    },
+  ]);
   return (
     <>
       <nav id='desktop-nav'>
         <div className='logo'>John Henry</div>
         <div>
           <ul className='nav-links'>
-            <li>
-              <a href='#about'>About</a>
-            </li>
-            <li>
-              <a href='#experience'>Experience</a>
-            </li>
-            <li>
-              <a href='#projects'>Projects</a>
-            </li>
-            <li>
-              <a href='#contact'>Contact</a>
-            </li>
+            {data.map((nav_link) => (
+              <li key={nav_link.id}>
+                <a href={nav_link.href}>{nav_link.name}</a>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>
@@ -39,26 +54,13 @@ export default function Navigation() {
             <span></span>
           </div>
           <div className={showToggleMenu ? 'menu-links open' : 'menu-links'}>
-            <li>
-              <a href='#about' onClick={toggleMenu}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href='#experience' onClick={toggleMenu}>
-                Experience
-              </a>
-            </li>
-            <li>
-              <a href='#projects' onClick={toggleMenu}>
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href='#contact' onClick={toggleMenu}>
-                Contact
-              </a>
-            </li>
+            {data.map((nav_link) => (
+              <li key={nav_link.id}>
+                <a href={nav_link.href} onClick={{ toggleMenu }}>
+                  {nav_link.name}
+                </a>
+              </li>
+            ))}
           </div>
         </div>
       </nav>
