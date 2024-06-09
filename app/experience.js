@@ -1,6 +1,101 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 export default function Experience() {
+  const [data, setData] = useState([
+    {
+      id: 1,
+      name: 'Technical Skills',
+      skills: [
+        {
+          name: 'Windows',
+          level: 'Intermediate',
+        },
+        {
+          name: 'Active Directory',
+          level: 'Basic',
+        },
+        {
+          name: 'Microsoft 365',
+          level: 'Basic',
+        },
+        {
+          name: 'Computer Networking',
+          level: 'Basic',
+        },
+        {
+          name: 'Hardware Troubleshooting',
+          level: 'Basic',
+        },
+        {
+          name: 'Microsoft Azure',
+          level: 'Basic',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Soft Skills',
+      skills: [
+        {
+          name: 'Customer Service',
+          level: 'Experienced',
+        },
+        {
+          name: 'Responsiveness',
+          level: 'Intermediate',
+        },
+        {
+          name: 'Team Work',
+          level: 'Intermediate',
+        },
+        {
+          name: 'Problem-Solving',
+          level: 'Intermediate',
+        },
+        {
+          name: 'Flexibility',
+          level: 'Intermediate',
+        },
+        {
+          name: 'Active Listening',
+          level: 'Intermediate',
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: 'Other Skills',
+      skills: [
+        {
+          name: 'HTML5',
+          level: 'Basic',
+        },
+        {
+          name: 'CSS3',
+          level: 'Basic',
+        },
+        {
+          name: 'JavaScript',
+          level: 'Basic',
+        },
+        {
+          name: 'React.js',
+          level: 'Basic',
+        },
+        {
+          name: 'C#',
+          level: 'Basic',
+        },
+        {
+          name: 'Python',
+          level: 'Basic',
+        },
+      ],
+    },
+  ]);
+
   return (
     <>
       <section id='experience'>
@@ -8,175 +103,26 @@ export default function Experience() {
         <h1 className='title'>Experience</h1>
         <div className='experience-details-container'>
           <div className='about-containers'>
-            <div className='details-container'>
-              <h2 className='experience-sub-title'>Technical Skills</h2>
-              <div className='article-container'>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Windows</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Active Directory</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Microsoft 365</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Computer Networking</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Hardware Troubleshooting</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Microsoft Azure</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
+            {data.map((experience) => (
+              <div className='details-container' key={experience.id}>
+                <h2 className='experience-sub-title'>{experience.name}</h2>
+                <div className='article-container'>
+                  {experience.skills.map((skill, index) => (
+                    <article>
+                      <img
+                        src='/static/checkmark.png'
+                        alt='Experience Icon'
+                        className='icon'
+                      />
+                      <div key={index}>
+                        <h3>{skill.name}</h3>
+                        <p>{skill.level}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className='details-container'>
-              <h2 className='experience-sub-title'>Soft Skills</h2>
-              <div className='article-container'>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Customer Service</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Responsiveness</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Teamwork</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Problem-solving</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Flexibility</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>Active Listening</h3>
-                    <p>Experieced</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div className='details-container'>
-              <h2 className='experience-sub-title'>Other Skills</h2>
-              <div className='article-container'>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>HTML5/CSS3</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src='/static/checkmark.png'
-                    alt='Experience Icon'
-                    className='icon'
-                  />
-                  <div>
-                    <h3>C# Programming</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
